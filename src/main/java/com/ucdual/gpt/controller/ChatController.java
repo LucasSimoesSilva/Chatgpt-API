@@ -18,7 +18,7 @@ public class ChatController {
 
     @PostMapping
     public ResponseEntity<List<CompletionChoice>> askToChat(@RequestBody String prompt) {
-        OpenAiService service = new OpenAiService("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");
+        OpenAiService service = new OpenAiService("");
         CompletionRequest completionRequest = CompletionRequest.builder()
                 .prompt(prompt)
                 .model("text-davinci-003")
