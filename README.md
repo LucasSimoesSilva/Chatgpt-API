@@ -2,6 +2,8 @@
 
 Projeto da UC-dual para consumo da API do chat GPT
 
+<hr>
+
 <p>Andy Hyong Tae Choi Youn | RA: 12522142446</p>
 <p>Felipe Daura | RA: 1252214120</p>
 <p>Giovanni Lopes Campos | RA: 12522149685</p>
