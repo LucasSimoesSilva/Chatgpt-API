@@ -1,8 +1,7 @@
 package com.ucdual.gpt.controller;
 
-import com.theokanning.openai.OpenAiService;
 import com.theokanning.openai.completion.CompletionChoice;
-import com.theokanning.openai.completion.CompletionRequest;
+import com.ucdual.gpt.connection.ConnectionApi;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,16 +15,12 @@ import java.util.List;
 @RequestMapping("/chat")
 public class ChatController {
 
+    ConnectionApi connectionApi = new ConnectionApi();
+
     @PostMapping
     public ResponseEntity<List<CompletionChoice>> askToChat(@RequestBody String prompt) {
-        OpenAiService service = new OpenAiService("");
-        CompletionRequest completionRequest = CompletionRequest.builder()
-                .prompt(prompt)
-                .model("text-davinci-003")
-                .maxTokens(100)
-                .build();
+        List<CompletionChoice> completionChoices = connectionApi.connectApi(prompt);
 
-        List<CompletionChoice> choices = service.createCompletion(completionRequest).getChoices();
-        return ResponseEntity.status(HttpStatus.OK).body(choices);
+        return ResponseEntity.status(HttpStatus.OK).body(completionChoices);
     }
 }
