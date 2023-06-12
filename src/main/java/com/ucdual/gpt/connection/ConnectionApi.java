@@ -18,7 +18,7 @@ public class ConnectionApi{
     }
 
     public List<CompletionChoice> connectApi(String prompt){
-        String token ="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";
+        String token ="";
         OpenAiService service = new OpenAiService(token);
 
         Parameters parameters = new Parameters(
